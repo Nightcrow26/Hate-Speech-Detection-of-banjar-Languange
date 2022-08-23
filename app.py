@@ -16,7 +16,6 @@ def main():
     if st.button("Classify"):
         st.text("Original Text::\n{}".format(news_text))
         tfidf = TfidfVectorizer()
-        tfidf.fit_transform([news_text])
         vect_text = tfidf.transform([news_text])
         with open('model.pkl', 'rb') as f:
             predictor = pickle.load(f)
