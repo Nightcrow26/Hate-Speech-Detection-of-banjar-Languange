@@ -23,4 +23,4 @@ def main():
         st.success("News Categorized as:: {}".format(final_result))
 
 if __name__ == '__main__':
-     main()
+    main()
