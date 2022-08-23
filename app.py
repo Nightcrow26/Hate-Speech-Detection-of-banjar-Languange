@@ -13,7 +13,8 @@ def main():
     prediction_labels = {'Ujaran Kebencian': 0, 'Bukan Ujaran Kebencian': 1}
     if st.button("Classify"):
         st.text("Original Text::\n{}".format(news_text))
-        vect_text = TfidfVectorizer.transform([news_text])
+	tfidf = TfidfVectorizer()
+        vect_text = tfidf.transform([news_text])
         with open('model.pkl', 'rb') as f:
              predictor = pickle.load(f)
         prediction = predictor.predict(vect_text)
