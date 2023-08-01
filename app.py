@@ -37,7 +37,7 @@ def get_key(val, my_dict):
 
 def main():
     st.title("TF-IDF dan SVM Klasifikasi Ujaran Kebencian Bahasa Banjar")
-    news_text = st.text_area("Enter News Here", "Type Here")
+    news_text = st.text_area("Enter Text Here", "Type Here")
     prediction_labels = {'Ujaran Kebencian': 1, 'Bukan Ujaran Kebencian': 0}
     if st.button("Classify"):
         st.text("Original Text::\n{}".format(news_text))
@@ -46,7 +46,7 @@ def main():
             predictor = pickle.load(f)
         prediction = predictor.predict(vect_text)
         final_result = get_key(prediction, prediction_labels)
-        st.success("News Categorized as:: {}".format(final_result))
+        st.success("Text Categorized as:: {}".format(final_result))
 
 
 if __name__ == '__main__':
