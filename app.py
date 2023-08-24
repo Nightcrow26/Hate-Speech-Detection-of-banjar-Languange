@@ -40,7 +40,7 @@ def main():
     news_text = st.text_area("Enter Text Here", "Type Here")
     prediction_labels = {'Ujaran Kebencian': 1, 'Bukan Ujaran Kebencian': 0}
     if st.button("Classify"):
-        st.text("Original Text::\n{}".format(news_text))
+        st.text("Original Text:\n{}".format(news_text))
         vect_text = tfidf.transform([news_text])
         with open('model.pkl', 'rb') as f:
             predictor = pickle.load(f)
@@ -54,7 +54,7 @@ def main():
             color = 'green'
         
         # Menampilkan teks prediksi dengan warna yang sesuai
-        st.markdown(f'<p style="color:{color}; font-size:20px;">Text Categorized as:: {final_result}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:{color}; font-size:20px;">Text Categorized as: {final_result}</p>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
