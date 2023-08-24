@@ -46,8 +46,15 @@ def main():
             predictor = pickle.load(f)
         prediction = predictor.predict(vect_text)
         final_result = get_key(prediction, prediction_labels)
-        st.success("Text Categorized as:: {}".format(final_result))
-
+        
+        # Menentukan warna berdasarkan hasil prediksi
+        if final_result == 'Ujaran Kebencian':
+            color = 'red'
+        else:
+            color = 'green'
+        
+        # Menampilkan teks prediksi dengan warna yang sesuai
+        st.markdown(f'<p style="color:{color}; font-size:20px;">Text Categorized as:: {final_result}</p>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
